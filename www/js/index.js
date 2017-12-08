@@ -69,10 +69,10 @@ var app = {
         }
         window.plugins.CallNumber.callNumber(
             function(result) {
-                alert("Success: "+result);
+                alert(number +"___"+ flag +" = Success: "+result);
             }, 
             function(result) {
-                alert("Errror: "+result);
+                alert(number +"___"+ flag +" = Errror: "+result);
             }, 
             number, 
             flag
