@@ -47,21 +47,24 @@ var app = {
         var btnFalse = document.getElementById("btnStartCallFalse");
         var that = this;
         btnTrue.addEventListener('click', function(){
-            that.clickHandler(true);
+            that.clickHandler(pn.value, true);
         });
         btnFalse.addEventListener('click', function(){
-            that.clickHandler(false);
+            that.clickHandler(pn.value, false);
         });
     },
 
-    clickHandler: function(flag) {
+    clickHandler: function(number, flag) {
         if (!window.Cordova) {
+            console.log (111);
             window.Cordova = cordova;
         };
         if(!window.plugins) {
+            console.log (222);
             window.plugins = {};
         } 
         if (!window.plugins.CallNumber) {
+            console.log (333);
             window.plugins.CallNumber = new CallNumber();
         }
         window.plugins.CallNumber.callNumber(
@@ -71,9 +74,10 @@ var app = {
             function(result) {
                 alert("Errror: "+result);
             }, 
-            pn.value, 
+            number, 
             flag
         );
+        console.log (444);
     }
 };
 
