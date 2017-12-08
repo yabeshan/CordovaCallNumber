@@ -1,27 +1,24 @@
 {
-  "_from": "call-number@^1.0.1",
-  "_id": "call-number@1.0.1",
+  "_from": "git+https://github.com/Rohfosho/CordovaCallNumberPlugin.git",
+  "_id": "call-number@1.0.4",
   "_inBundle": false,
-  "_integrity": "sha1-v52q5If9alVz+JqjZV++ivA2r9I=",
+  "_integrity": "sha1-H4lFbQqKIuIQIahnjA7cEhJ+Hi8=",
   "_location": "/call-number",
   "_phantomChildren": {},
   "_requested": {
-    "type": "range",
-    "registry": true,
-    "raw": "call-number@^1.0.1",
-    "name": "call-number",
-    "escapedName": "call-number",
-    "rawSpec": "^1.0.1",
-    "saveSpec": null,
-    "fetchSpec": "^1.0.1"
+    "type": "git",
+    "raw": "https://github.com/Rohfosho/CordovaCallNumberPlugin.git",
+    "rawSpec": "https://github.com/Rohfosho/CordovaCallNumberPlugin.git",
+    "saveSpec": "git+https://github.com/Rohfosho/CordovaCallNumberPlugin.git",
+    "fetchSpec": "https://github.com/Rohfosho/CordovaCallNumberPlugin.git",
+    "gitCommittish": "master"
   },
   "_requiredBy": [
     "#USER",
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/call-number/-/call-number-1.0.1.tgz",
-  "_shasum": "bf9daae487fd6a5573f89aa3655fbe8af036afd2",
-  "_spec": "call-number@^1.0.1",
+  "_resolved": "git+https://github.com/Rohfosho/CordovaCallNumberPlugin.git#a55dc2057dc20ebd635a8c088da17fcb255b6eb2",
+  "_spec": "https://github.com/Rohfosho/CordovaCallNumberPlugin.git",
   "_where": "D:\\Nick_work\\sifox_group\\CordovaCallNumber",
   "author": "",
   "bugs": {
@@ -29,7 +26,7 @@
   },
   "bundleDependencies": false,
   "cordova": {
-    "id": "mx.ferreyra.callnumber",
+    "id": "call-number",
     "platforms": [
       "ios",
       "android"
@@ -53,5 +50,5 @@
     "type": "git",
     "url": "git+https://github.com/Rohfosho/CordovaCallNumberPlugin.git"
   },
-  "version": "1.0.1"
+  "version": "1.0.4"
 }

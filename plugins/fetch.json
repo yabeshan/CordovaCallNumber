@@ -1,8 +1,8 @@
 {
-  "mx.ferreyra.callnumber": {
+  "call-number": {
     "source": {
       "type": "registry",
-      "id": "call-number@^1.0.1"
+      "id": "https://github.com/Rohfosho/CordovaCallNumberPlugin.git"
     },
     "is_top_level": true,
     "variables": {}

@@ -10,11 +10,11 @@
   "author": "Apache Cordova Team",
   "license": "Apache-2.0",
   "dependencies": {
-    "call-number": "^1.0.1"
+    "call-number": "git+https://github.com/Rohfosho/CordovaCallNumberPlugin.git"
   },
   "cordova": {
     "plugins": {
-      "mx.ferreyra.callnumber": {}
+      "call-number": {}
     }
   }
 }
