@@ -44,19 +44,19 @@ var app = {
         
         var pn = document.getElementById("phoneNumber");
         var that = this;
-        // document.getElementById("btnStartCallTrue").addEventListener('click', function(){
-        //     that.clickHandler(pn.value, true);
-        // });
-        // document.getElementById("btnStartCallFalse").addEventListener('click', function(){
-        //     that.clickHandler(pn.value, false);
-        // });
+        document.getElementById("btnStartCallTrue").addEventListener('click', function(){
+            that.clickHandler(pn.value, true);
+        });
+        document.getElementById("btnStartCallFalse").addEventListener('click', function(){
+            that.clickHandler(pn.value, false);
+        });
 
-        // setTimeout(function(){
-        //     that.checkSim();
-        // },9000);
-        // setTimeout(function(){
-        //     that.checkDevice();
-        // },10000);
+        setTimeout(function(){
+            that.checkSim();
+        },9000);
+        setTimeout(function(){
+            that.checkDevice();
+        },10000);
 
         alert("complete");
     },
@@ -101,55 +101,55 @@ var app = {
     },
 
     checkDevice: function(){
-        // alert(333);
-        // var conn = document.getElementById("phoneConnection");
-        // if (navigator && navigator.connection && navigator.connection.type) {
-        //     alert("check navigator.connection.type");
-        //     conn.value = "Connect type = " + navigator.connection.type;
-        // } else {
-        //     alert("error navigator.connection.type");
-        // }
+        alert(333);
+        var conn = document.getElementById("phoneConnection");
+        if (navigator && navigator.connection && navigator.connection.type) {
+            alert("check navigator.connection.type");
+            conn.value = "Connect type = " + navigator.connection.type;
+        } else {
+            alert("error navigator.connection.type");
+        }
 
-        // if (device) {
-        //     alert("check device");
-        //     var devc = document.getElementById("phoneDevice");
-        //     var st = "Device __"
-        //     if (device.cordova) {
-        //         st += "__cordova = " + device.cordova;
-        //     }
-        //     if (device.model) {
-        //         st += "__model = " + device.model;
-        //     }
-        //     if (device.platform) {
-        //         st += "__platform = " + device.platform;
-        //     }
-        //     if (device.uuid) {
-        //         st += "__uuid = " + device.uuid;
-        //     }
-        //     if (device.version) {
-        //         st += "__version = " + device.version;
-        //     }
-        //     if (device.manufacturer) {
-        //         st += "__manufacturer = " + device.manufacturer;
-        //     }
-        //     if (device.isVirtual) {
-        //         st += "__isVirtual = " + device.isVirtual;
-        //     }
-        //     if (device.serial) {
-        //         st += "__serial = " + device.serial;
-        //     }
-        //     devc.value = st
-        //     // device.cordova
-        //     // device.model
-        //     // device.platform
-        //     // device.uuid
-        //     // device.version
-        //     // device.manufacturer
-        //     // device.isVirtual
-        //     // device.serial
-        // } else {
-        //     alert("error device");
-        // }
+        if (device) {
+            alert("check device");
+            var devc = document.getElementById("phoneDevice");
+            var st = "Device __"
+            if (device.cordova) {
+                st += "__cordova = " + device.cordova;
+            }
+            if (device.model) {
+                st += "__model = " + device.model;
+            }
+            if (device.platform) {
+                st += "__platform = " + device.platform;
+            }
+            if (device.uuid) {
+                st += "__uuid = " + device.uuid;
+            }
+            if (device.version) {
+                st += "__version = " + device.version;
+            }
+            if (device.manufacturer) {
+                st += "__manufacturer = " + device.manufacturer;
+            }
+            if (device.isVirtual) {
+                st += "__isVirtual = " + device.isVirtual;
+            }
+            if (device.serial) {
+                st += "__serial = " + device.serial;
+            }
+            devc.value = st
+            // device.cordova
+            // device.model
+            // device.platform
+            // device.uuid
+            // device.version
+            // device.manufacturer
+            // device.isVirtual
+            // device.serial
+        } else {
+            alert("error device");
+        }
     },
 
     clickHandler: function(number, flag) {
