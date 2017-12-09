@@ -51,14 +51,9 @@ var app = {
             that.clickHandler(pn.value, false);
         });
 
-        setTimeout(function(){
-            that.checkSim();
-        },10000);
-        // setTimeout(function(){
-            that.checkDevice();
-        // },10000);
-
-        // alert("complete");
+        that.checkSim();
+        that.checkDevice();
+    
     },
 
     checkSim: function(){
@@ -94,7 +89,6 @@ var app = {
     },
 
     checkDevice: function(){
-        alert(333);
         var conn = document.getElementById("phoneConnection");
         if (navigator && navigator.connection && navigator.connection.type) {
             alert("check navigator.connection.type");
@@ -106,7 +100,7 @@ var app = {
         if (device) {
             alert("check device");
             var devc = document.getElementById("phoneDevice");
-            var st = "Device __"
+            var st = "Device"
             if (device.cordova) {
                 st += "__cordova = " + device.cordova;
             }
