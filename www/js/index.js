@@ -62,41 +62,42 @@ var app = {
     },
 
     checkSim: function(){
-        // alert(111);
-        // document.getElementById("btnStartCallHref").addEventListener('click', function(){
-        //     document.location.href = "tel:" + pn.value;
-        // });
-        // document.getElementById("btnStartCallWindow").addEventListener('click', function(){
-        //     if (cordova && cordova.InAppBrowser && cordova.InAppBrowser.open) {
-        //         cordova.InAppBrowser.open('tel:' + pn.value, '_system');
-        //     } else {
-        //         alert("close");
-        //     }
-        // });
-        // alert(222);
-        // var sim = document.getElementById("phoneSim");
-        // if (window && window.plugins && window.plugins.sim && window.plugins.sim.getSimInfo) {
-        //     window.plugins.sim.getSimInfo(
-        //         function(result){
-        //             // allowsVOIP: true
-        //             // carrierName: "lifecell"
-        //             // countryCode: "ua"
-        //             // mcc: "255"
-        //             // mnc: "06"
+        alert(111);
+        var pn = document.getElementById("phoneNumber");
+        document.getElementById("btnStartCallHref").addEventListener('click', function(){
+            document.location.href = "tel:" + pn.value;
+        });
+        document.getElementById("btnStartCallWindow").addEventListener('click', function(){
+            if (cordova && cordova.InAppBrowser && cordova.InAppBrowser.open) {
+                cordova.InAppBrowser.open('tel:' + pn.value, '_system');
+            } else {
+                alert("close");
+            }
+        });
+        alert(222);
+        var sim = document.getElementById("phoneSim");
+        if (window && window.plugins && window.plugins.sim && window.plugins.sim.getSimInfo) {
+            window.plugins.sim.getSimInfo(
+                function(result){
+                    // allowsVOIP: true
+                    // carrierName: "lifecell"
+                    // countryCode: "ua"
+                    // mcc: "255"
+                    // mnc: "06"
     
-        //             var txt = "null";
-        //             if (result.allowsVOIP) txt += "___allowsVOIP = " + result.allowsVOIP;
-        //             if (result.countryCode) txt += "___countryCode = " + result.countryCode;
-        //             if (result.countryCode) txt += "___countryCode = " + result.countryCode;
-        //             if (result.mcc) txt += "___mcc = " + result.mcc;
-        //             if (result.mnc) txt += "___mnc = " + result.mnc;
-        //             sim.value = "Sim result " + txt;
-        //         }, 
-        //         function(error){
-        //             sim.value = "Sim error " + error;
-        //         }, 
-        //     );
-        // }
+                    var txt = "null";
+                    if (result.allowsVOIP) txt += "___allowsVOIP = " + result.allowsVOIP;
+                    if (result.countryCode) txt += "___countryCode = " + result.countryCode;
+                    if (result.countryCode) txt += "___countryCode = " + result.countryCode;
+                    if (result.mcc) txt += "___mcc = " + result.mcc;
+                    if (result.mnc) txt += "___mnc = " + result.mnc;
+                    sim.value = "Sim result " + txt;
+                }, 
+                function(error){
+                    sim.value = "Sim error " + error;
+                }, 
+            );
+        }
     },
 
     checkDevice: function(){
