@@ -54,7 +54,12 @@ var app = {
             document.location.href = "tel:" + pn.value;
         });
         document.getElementById("btnStartCallWindow").addEventListener('click', function(){
-            cordova.InAppBrowser.open('tel:' + pn.value, '_system');
+            if (cordova && cordova.InAppBrowser && cordova.InAppBrowser.open) {
+                cordova.InAppBrowser.open('tel:' + pn.value, '_system');
+            } else {
+                alert("close");
+            }
+            
         });
 
         var sim = document.getElementById("phoneSim");
@@ -113,6 +118,7 @@ var app = {
             if (device.serial) {
                 st += "__serial = " + device.serial;
             }
+            devc.value = st
             // device.cordova
             // device.model
             // device.platform
