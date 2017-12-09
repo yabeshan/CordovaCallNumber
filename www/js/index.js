@@ -53,16 +53,15 @@ var app = {
 
         setTimeout(function(){
             that.checkSim();
-        },9000);
-        setTimeout(function(){
-            that.checkDevice();
         },10000);
+        // setTimeout(function(){
+            that.checkDevice();
+        // },10000);
 
-        alert("complete");
+        // alert("complete");
     },
 
     checkSim: function(){
-        alert(111);
         var pn = document.getElementById("phoneNumber");
         document.getElementById("btnStartCallHref").addEventListener('click', function(){
             document.location.href = "tel:" + pn.value;
@@ -74,8 +73,12 @@ var app = {
                 alert("close");
             }
         });
-        // alert(222);
-        // var sim = document.getElementById("phoneSim");
+
+        var sim = document.getElementById("phoneSim");
+        alert("window = " + window);
+        alert("window.plugins = " + window.plugins);
+        alert("window.plugins.sim = " + window.plugins.sim);
+        alert("window.plugins.sim.getSimInfo = " + window.plugins.sim.getSimInfo);
         // if (window && window.plugins && window.plugins.sim && window.plugins.sim.getSimInfo) {
         //     window.plugins.sim.getSimInfo(
         //         function(result){
