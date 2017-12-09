@@ -42,8 +42,8 @@ var app = {
 
         console.log('Received Event: ' + id);
         
-        // var pn = document.getElementById("phoneNumber");
-        // var that = this;
+        var pn = document.getElementById("phoneNumber");
+        var that = this;
         // document.getElementById("btnStartCallTrue").addEventListener('click', function(){
         //     that.clickHandler(pn.value, true);
         // });
