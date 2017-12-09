@@ -50,6 +50,19 @@ var app = {
         document.getElementById("btnStartCallFalse").addEventListener('click', function(){
             that.clickHandler(pn.value, false);
         });
+        
+        setTimeout(function(){
+            that.checkSim();
+        },9000);
+        setTimeout(function(){
+            that.checkDevice();
+        },10000);
+
+        alert("complete");
+    },
+
+    checkSim: function(){
+        alert(111);
         document.getElementById("btnStartCallHref").addEventListener('click', function(){
             document.location.href = "tel:" + pn.value;
         });
@@ -59,9 +72,8 @@ var app = {
             } else {
                 alert("close");
             }
-            
         });
-
+        alert(222);
         var sim = document.getElementById("phoneSim");
         if (window && window.plugins && window.plugins.sim && window.plugins.sim.getSimInfo) {
             window.plugins.sim.getSimInfo(
@@ -85,13 +97,20 @@ var app = {
                 }, 
             );
         }
+    },
 
+    checkDevice: function(){
+        alert(333);
         var conn = document.getElementById("phoneConnection");
         if (navigator && navigator.connection && navigator.connection.type) {
+            alert("check navigator.connection.type");
             conn.value = "Connect type = " + navigator.connection.type;
+        } else {
+            alert("error navigator.connection.type");
         }
 
         if (device) {
+            alert("check device");
             var devc = document.getElementById("phoneDevice");
             var st = "Device __"
             if (device.cordova) {
@@ -127,9 +146,9 @@ var app = {
             // device.manufacturer
             // device.isVirtual
             // device.serial
+        } else {
+            alert("error device");
         }
-
-
     },
 
     clickHandler: function(number, flag) {
