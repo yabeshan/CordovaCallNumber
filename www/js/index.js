@@ -42,114 +42,114 @@ var app = {
 
         console.log('Received Event: ' + id);
         
-        var pn = document.getElementById("phoneNumber");
-        var that = this;
-        document.getElementById("btnStartCallTrue").addEventListener('click', function(){
-            that.clickHandler(pn.value, true);
-        });
-        document.getElementById("btnStartCallFalse").addEventListener('click', function(){
-            that.clickHandler(pn.value, false);
-        });
-        
-        setTimeout(function(){
-            that.checkSim();
-        },9000);
-        setTimeout(function(){
-            that.checkDevice();
-        },10000);
+        // var pn = document.getElementById("phoneNumber");
+        // var that = this;
+        // document.getElementById("btnStartCallTrue").addEventListener('click', function(){
+        //     that.clickHandler(pn.value, true);
+        // });
+        // document.getElementById("btnStartCallFalse").addEventListener('click', function(){
+        //     that.clickHandler(pn.value, false);
+        // });
 
-        alert("complete");
+        // setTimeout(function(){
+        //     that.checkSim();
+        // },9000);
+        // setTimeout(function(){
+        //     that.checkDevice();
+        // },10000);
+
+        // alert("complete");
     },
 
-    checkSim: function(){
-        alert(111);
-        document.getElementById("btnStartCallHref").addEventListener('click', function(){
-            document.location.href = "tel:" + pn.value;
-        });
-        document.getElementById("btnStartCallWindow").addEventListener('click', function(){
-            if (cordova && cordova.InAppBrowser && cordova.InAppBrowser.open) {
-                cordova.InAppBrowser.open('tel:' + pn.value, '_system');
-            } else {
-                alert("close");
-            }
-        });
-        alert(222);
-        var sim = document.getElementById("phoneSim");
-        if (window && window.plugins && window.plugins.sim && window.plugins.sim.getSimInfo) {
-            window.plugins.sim.getSimInfo(
-                function(result){
-                    // allowsVOIP: true
-                    // carrierName: "lifecell"
-                    // countryCode: "ua"
-                    // mcc: "255"
-                    // mnc: "06"
+    // checkSim: function(){
+    //     alert(111);
+    //     document.getElementById("btnStartCallHref").addEventListener('click', function(){
+    //         document.location.href = "tel:" + pn.value;
+    //     });
+    //     document.getElementById("btnStartCallWindow").addEventListener('click', function(){
+    //         if (cordova && cordova.InAppBrowser && cordova.InAppBrowser.open) {
+    //             cordova.InAppBrowser.open('tel:' + pn.value, '_system');
+    //         } else {
+    //             alert("close");
+    //         }
+    //     });
+    //     alert(222);
+    //     var sim = document.getElementById("phoneSim");
+    //     if (window && window.plugins && window.plugins.sim && window.plugins.sim.getSimInfo) {
+    //         window.plugins.sim.getSimInfo(
+    //             function(result){
+    //                 // allowsVOIP: true
+    //                 // carrierName: "lifecell"
+    //                 // countryCode: "ua"
+    //                 // mcc: "255"
+    //                 // mnc: "06"
     
-                    var txt = "null";
-                    if (result.allowsVOIP) txt += "___allowsVOIP = " + result.allowsVOIP;
-                    if (result.countryCode) txt += "___countryCode = " + result.countryCode;
-                    if (result.countryCode) txt += "___countryCode = " + result.countryCode;
-                    if (result.mcc) txt += "___mcc = " + result.mcc;
-                    if (result.mnc) txt += "___mnc = " + result.mnc;
-                    sim.value = "Sim result " + txt;
-                }, 
-                function(error){
-                    sim.value = "Sim error " + error;
-                }, 
-            );
-        }
-    },
+    //                 var txt = "null";
+    //                 if (result.allowsVOIP) txt += "___allowsVOIP = " + result.allowsVOIP;
+    //                 if (result.countryCode) txt += "___countryCode = " + result.countryCode;
+    //                 if (result.countryCode) txt += "___countryCode = " + result.countryCode;
+    //                 if (result.mcc) txt += "___mcc = " + result.mcc;
+    //                 if (result.mnc) txt += "___mnc = " + result.mnc;
+    //                 sim.value = "Sim result " + txt;
+    //             }, 
+    //             function(error){
+    //                 sim.value = "Sim error " + error;
+    //             }, 
+    //         );
+    //     }
+    // },
 
-    checkDevice: function(){
-        alert(333);
-        var conn = document.getElementById("phoneConnection");
-        if (navigator && navigator.connection && navigator.connection.type) {
-            alert("check navigator.connection.type");
-            conn.value = "Connect type = " + navigator.connection.type;
-        } else {
-            alert("error navigator.connection.type");
-        }
+    // checkDevice: function(){
+    //     alert(333);
+    //     var conn = document.getElementById("phoneConnection");
+    //     if (navigator && navigator.connection && navigator.connection.type) {
+    //         alert("check navigator.connection.type");
+    //         conn.value = "Connect type = " + navigator.connection.type;
+    //     } else {
+    //         alert("error navigator.connection.type");
+    //     }
 
-        if (device) {
-            alert("check device");
-            var devc = document.getElementById("phoneDevice");
-            var st = "Device __"
-            if (device.cordova) {
-                st += "__cordova = " + device.cordova;
-            }
-            if (device.model) {
-                st += "__model = " + device.model;
-            }
-            if (device.platform) {
-                st += "__platform = " + device.platform;
-            }
-            if (device.uuid) {
-                st += "__uuid = " + device.uuid;
-            }
-            if (device.version) {
-                st += "__version = " + device.version;
-            }
-            if (device.manufacturer) {
-                st += "__manufacturer = " + device.manufacturer;
-            }
-            if (device.isVirtual) {
-                st += "__isVirtual = " + device.isVirtual;
-            }
-            if (device.serial) {
-                st += "__serial = " + device.serial;
-            }
-            devc.value = st
-            // device.cordova
-            // device.model
-            // device.platform
-            // device.uuid
-            // device.version
-            // device.manufacturer
-            // device.isVirtual
-            // device.serial
-        } else {
-            alert("error device");
-        }
-    },
+    //     if (device) {
+    //         alert("check device");
+    //         var devc = document.getElementById("phoneDevice");
+    //         var st = "Device __"
+    //         if (device.cordova) {
+    //             st += "__cordova = " + device.cordova;
+    //         }
+    //         if (device.model) {
+    //             st += "__model = " + device.model;
+    //         }
+    //         if (device.platform) {
+    //             st += "__platform = " + device.platform;
+    //         }
+    //         if (device.uuid) {
+    //             st += "__uuid = " + device.uuid;
+    //         }
+    //         if (device.version) {
+    //             st += "__version = " + device.version;
+    //         }
+    //         if (device.manufacturer) {
+    //             st += "__manufacturer = " + device.manufacturer;
+    //         }
+    //         if (device.isVirtual) {
+    //             st += "__isVirtual = " + device.isVirtual;
+    //         }
+    //         if (device.serial) {
+    //             st += "__serial = " + device.serial;
+    //         }
+    //         devc.value = st
+    //         // device.cordova
+    //         // device.model
+    //         // device.platform
+    //         // device.uuid
+    //         // device.version
+    //         // device.manufacturer
+    //         // device.isVirtual
+    //         // device.serial
+    //     } else {
+    //         alert("error device");
+    //     }
+    // },
 
     clickHandler: function(number, flag) {
         if (!window.Cordova) {
