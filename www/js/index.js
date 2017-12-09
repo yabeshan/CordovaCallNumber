@@ -20,7 +20,7 @@ var app = {
     // Application Constructor
     initialize: function() {
         document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
-        // this.receivedEvent('deviceready');
+        this.receivedEvent('deviceready');
     },
 
     // deviceready Event Handler
@@ -42,16 +42,88 @@ var app = {
 
         console.log('Received Event: ' + id);
         
-        var pn = document.getElementById("phoneNumber");   
-        var btnTrue = document.getElementById("btnStartCallTrue");
-        var btnFalse = document.getElementById("btnStartCallFalse");
+        var pn = document.getElementById("phoneNumber");
         var that = this;
-        btnTrue.addEventListener('click', function(){
+        document.getElementById("btnStartCallTrue").addEventListener('click', function(){
             that.clickHandler(pn.value, true);
         });
-        btnFalse.addEventListener('click', function(){
+        document.getElementById("btnStartCallFalse").addEventListener('click', function(){
             that.clickHandler(pn.value, false);
         });
+        document.getElementById("btnStartCallHref").addEventListener('click', function(){
+            document.location.href = "tel:" + pn.value;
+        });
+        document.getElementById("btnStartCallWindow").addEventListener('click', function(){
+            cordova.InAppBrowser.open('tel:' + pn.value, '_system');
+        });
+
+        var sim = document.getElementById("phoneSim");
+        if (window && window.plugins && window.plugins.sim && window.plugins.sim.getSimInfo) {
+            window.plugins.sim.getSimInfo(
+                function(result){
+                    // allowsVOIP: true
+                    // carrierName: "lifecell"
+                    // countryCode: "ua"
+                    // mcc: "255"
+                    // mnc: "06"
+    
+                    var txt = "null";
+                    if (result.allowsVOIP) txt += "___allowsVOIP = " + result.allowsVOIP;
+                    if (result.countryCode) txt += "___countryCode = " + result.countryCode;
+                    if (result.countryCode) txt += "___countryCode = " + result.countryCode;
+                    if (result.mcc) txt += "___mcc = " + result.mcc;
+                    if (result.mnc) txt += "___mnc = " + result.mnc;
+                    sim.value = "Sim result " + txt;
+                }, 
+                function(error){
+                    sim.value = "Sim error " + error;
+                }, 
+            );
+        }
+
+        var conn = document.getElementById("phoneConnection");
+        if (navigator && navigator.connection && navigator.connection.type) {
+            conn.value = "Connect type = " + navigator.connection.type;
+        }
+
+        if (device) {
+            var devc = document.getElementById("phoneDevice");
+            var st = "Device __"
+            if (device.cordova) {
+                st += "__cordova = " + device.cordova;
+            }
+            if (device.model) {
+                st += "__model = " + device.model;
+            }
+            if (device.platform) {
+                st += "__platform = " + device.platform;
+            }
+            if (device.uuid) {
+                st += "__uuid = " + device.uuid;
+            }
+            if (device.version) {
+                st += "__version = " + device.version;
+            }
+            if (device.manufacturer) {
+                st += "__manufacturer = " + device.manufacturer;
+            }
+            if (device.isVirtual) {
+                st += "__isVirtual = " + device.isVirtual;
+            }
+            if (device.serial) {
+                st += "__serial = " + device.serial;
+            }
+            // device.cordova
+            // device.model
+            // device.platform
+            // device.uuid
+            // device.version
+            // device.manufacturer
+            // device.isVirtual
+            // device.serial
+        }
+
+
     },
 
     clickHandler: function(number, flag) {
