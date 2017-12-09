@@ -75,7 +75,7 @@ var app = {
                 function(result){
                     var txt = "null";
                     if (result.allowsVOIP) txt += "___allowsVOIP = " + result.allowsVOIP;
-                    if (result.countryCode) txt += "___countryCode = " + result.countryCode;
+                    if (result.carrierName) txt += "___carrierName = " + result.carrierName;
                     if (result.countryCode) txt += "___countryCode = " + result.countryCode;
                     if (result.mcc) txt += "___mcc = " + result.mcc;
                     if (result.mnc) txt += "___mnc = " + result.mnc;
@@ -91,14 +91,12 @@ var app = {
     checkDevice: function(){
         var conn = document.getElementById("phoneConnection");
         if (navigator && navigator.connection && navigator.connection.type) {
-            alert("check navigator.connection.type");
             conn.value = "Connect type = " + navigator.connection.type;
         } else {
             alert("error navigator.connection.type");
         }
 
         if (device) {
-            alert("check device");
             var devc = document.getElementById("phoneDevice");
             var st = "Device"
             if (device.cordova) {
@@ -162,7 +160,6 @@ var app = {
             number, 
             flag
         );
-        console.log (444);
     }
 };
 
