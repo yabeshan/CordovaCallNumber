@@ -94,7 +94,7 @@ var app = {
                 function(error){
                     alert("error = " + error);
                     // sim.value = "Sim error " + error;
-                }, 
+                }
             );
 
         //     window.plugins.sim.getSimInfo(
