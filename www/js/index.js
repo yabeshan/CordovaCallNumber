@@ -75,11 +75,28 @@ var app = {
         });
 
         var sim = document.getElementById("phoneSim");
-        alert("window = " + window);
-        alert("window.plugins = " + window.plugins);
-        alert("window.plugins.sim = " + window.plugins.sim);
-        alert("window.plugins.sim.getSimInfo = " + window.plugins.sim.getSimInfo);
-        // if (window && window.plugins && window.plugins.sim && window.plugins.sim.getSimInfo) {
+        // alert("window = " + window);
+        // alert("window.plugins = " + window.plugins);
+        // alert("window.plugins.sim = " + window.plugins.sim);
+        // alert("window.plugins.sim.getSimInfo = " + window.plugins.sim.getSimInfo);
+        if (window && window.plugins && window.plugins.sim && window.plugins.sim.getSimInfo) {
+            window.plugins.sim.getSimInfo(
+                function(result){
+                    alert("result = " + result);
+                    // var txt = "null";
+                    // if (result.allowsVOIP) txt += "___allowsVOIP = " + result.allowsVOIP;
+                    // if (result.countryCode) txt += "___countryCode = " + result.countryCode;
+                    // if (result.countryCode) txt += "___countryCode = " + result.countryCode;
+                    // if (result.mcc) txt += "___mcc = " + result.mcc;
+                    // if (result.mnc) txt += "___mnc = " + result.mnc;
+                    // sim.value = "Sim result " + txt;
+                }, 
+                function(error){
+                    alert("error = " + error);
+                    // sim.value = "Sim error " + error;
+                }, 
+            );
+
         //     window.plugins.sim.getSimInfo(
         //         function(result){
         //             // allowsVOIP: true
@@ -100,7 +117,7 @@ var app = {
         //             sim.value = "Sim error " + error;
         //         }, 
         //     );
-        // }
+        }
     },
 
     checkDevice: function(){
